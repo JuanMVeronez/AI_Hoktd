@@ -89,6 +89,18 @@ public class Table {
                     break;
             }
         }
+        public int getPositionHits() {
+            Position pos = this.getPlayerPosition();
+            int hits = 0;
+
+            for (int i = pos.line-1; i <= pos.line+1; i++) {
+                for (int j = pos.row-1 ; j <= pos.row+1; j++) {
+                    if (i >= 0 && i <= N && j >= 0 && j <=N && tableMap[i][j] == 'T') hits++;
+                }
+            }
+
+            return hits;
+        }
 
         public Position getPlayerPosition() {
             for(int i = 0; i < N; i++) {
