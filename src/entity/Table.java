@@ -7,8 +7,16 @@ public class Table {
         
         public Table(int N, char[][] tableMap) {
             this.N = N;
-            tableMap[0][0] = '1';
             this.tableMap = tableMap;
+        }
+
+        public Table startGame() {
+            if(this.getPlayerPosition() != null) {
+                throw new IllegalArgumentException("Game already started!");
+            }
+            
+            tableMap[0][0] = '1';
+            return this;
         }
         
         public int getN() {
@@ -100,7 +108,7 @@ public class Table {
 
             for (int i = pos.line-1; i <= pos.line+1; i++) {
                 for (int j = pos.row-1 ; j <= pos.row+1; j++) {
-                    if (i >= 0 && i <= N && j >= 0 && j <=N && tableMap[i][j] == 'T') hits++;
+                    if (i >= 0 && i < N && j >= 0 && j <N && tableMap[i][j] == 'T') hits++;
                 }
             }
 
@@ -110,8 +118,7 @@ public class Table {
         public Position getPlayerPosition() {
             for(int i = 0; i < N; i++) {
                 for(int j = 0; j < N; j++) {
-                    if(tableMap[i][j] == '1') {
-                        
+                    if(this.tableMap[i][j] == '1') {
                         return new Position(i, j);
                     }
                 }

@@ -34,7 +34,7 @@ public class InputInstance {
                 i++;
             }
 
-            table = new Table(N, tableMap);
+            table = new Table(N, tableMap).startGame();
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
