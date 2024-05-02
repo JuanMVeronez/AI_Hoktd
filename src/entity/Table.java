@@ -22,6 +22,11 @@ public class Table {
         public boolean isObjective() {
             return tableMap[N-1][N-1] == '1';
         }
+
+        public int getDistance() {
+            Position pos = this.getPlayerPosition();
+            return (N-1) - pos.line + (N-1) - pos.row;
+        }
         
         public Table getObjectiveTable() {
             char[][] tableMapClone = this.copyTableMap();

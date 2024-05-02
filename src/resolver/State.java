@@ -52,10 +52,22 @@ public class State {
         return new State(this.table.deepCopy(), this.hits, newActions);
 	}
 
+    public int getHits() {
+        return this.hits;
+    }
+
+    public int getLevel() {
+        return this.actions.size();
+    }
+
+    public int getDistance() {
+        return this.table.getDistance();
+    }
+
     @Override
     public String toString() {
         String res = "\n";
-		res += "level: " + this.actions.size() + "\n";
+		res += "level: " + this.getLevel() + "\n";
         res += "hits: " + this.hits + "\n";
 		res += this.table + "\n";
 		for(Action action: this.actions) {
