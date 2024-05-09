@@ -1,5 +1,7 @@
 package test;
 
+import java.util.List;
+
 import dao.InputInstance;
 import entity.Table;
 import entity.generic.PriorityStateQueue;
@@ -11,10 +13,19 @@ import resolver.heuristics.HeuristicAssessmentDistance;
 import resolver.heuristics.HeuristicAssessmentHits;
 import resolver.heuristics.HeuristicAssessmentLevel;
 
-public class TestPriorityStateSolver {
+public class TestInstancesFolder {
     public static void main(String[] args) {
-        String file = "files/inst/instg08.in";
+        String folder = "files/inst";
 
+        List<String> files = InputInstance.getFolderFiles(folder);
+
+        for (String file : files) {
+            System.out.println("Solving " + file);
+            solveInstance(file);
+        }
+    }
+
+    private static void solveInstance(String file) {
         Table t = InputInstance.getInstance(file);
         State s0 = new State(t);
 

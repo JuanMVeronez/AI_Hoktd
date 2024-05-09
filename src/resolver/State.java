@@ -64,6 +64,10 @@ public class State {
         return this.table.getDistance();
     }
 
+    public List<Action> getActions() {
+        return this.actions;
+    }
+
     @Override
     public String toString() {
         String res = "\n";

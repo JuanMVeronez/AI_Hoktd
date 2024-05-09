@@ -9,7 +9,7 @@ import resolver.heuristics.HeuristicAssessmentLevel;
 
 public class TestHeuristicAssessment {
     public static void main(String[] args) {
-        Table t = InputInstance.getInstance("files/inst04.in");
+        Table t = InputInstance.getInstance("files/inst05.in");
         State s0 = new State(t);
 
         HeuristicAssessmentDistance distance = new HeuristicAssessmentDistance();
